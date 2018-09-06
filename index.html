@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>HotLanta!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!--Side Menu -->
+    <aside>
+        <!--Observable that toggles CSS class on Side Menu Hide/Show-->
+        <div id="wrapper" data-bind="css: { 'toggled': visibleMenu }">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand"> Atlanta's HOT Spots!</li>
+                </ul>
+
+                <!--Search Buttons -->
+                <div class="input-group">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1 search-area" id="search-area">
+                            <br>
+                            <input class="search-box" type="search" data-bind="textInput: filter">
+                            <button data-bind='click: clearFilter'>Clear</button>
+                            <!-- Show <li class=location-list> and filter against the results from search -->
+                            <ul class="placesList" data-bind='foreach: filteredLocations'>
+                                <li class="location-item" data-bind="text: title, click: $root.selectLocation"></li>
+                        </div>
+                    </div>
+                    <!-- Toggle Menu Side -->
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <br>
+                            <hr>
+                            <a href="#menu-toggle" data-bind="click: clickMe" class="btn btn-danger menu-toggle">Toggle Menu</a>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+
+    <main>
+        <!--Page Content, Toggle Menu Header-->
+        <div id="page-content-wrapper">
+            <div class="container">
+                <div class="content col-lg-9">
+                    <h1 class="navbar-heading ">HOTLANTA!</h1>
+                    <a href="#menu-toggle" data-bind="click: clickMe" class="btn btn-danger menu-toggle" id="menu-toggle">Toggle Menu</a>
+                </div>
+            </div>
+        </div>
+
+        <article>
+            <!--Google Map-->
+            <div>
+                <div id="map"></div>
+            </div>
+        </article>
+
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiw34-ygRQG2JuwgKwF2lvosJlpkTOSrw&callback=initMap" async defer></script>
+    <script src="js/mapstyle.js"></script>
+    <script src="js/locations.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
