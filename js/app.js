@@ -53,40 +53,6 @@ var ViewModel = function() {
         }
     };
 
-    // click handler for when a location is clicked
-    this.selectLocation = function(clickedLocation) {
-        if (self.currentLocation() == clickedLocation && self.currentLocation().active() === true) {
-            resetActiveState();
-            return;
-        }
-
-        // reset any active state
-        resetActiveState();
-
-        // update currentLocation
-        self.currentLocation(clickedLocation);
-
-        // activate new currentLocation
-        self.currentLocation().active(true);
-
-        // bounce marker
-        self.currentLocation().marker.setAnimation(google.maps.Animation.BOUNCE);
-
-        // open infoWindow for the current location
-        infoWindow.setContent('<h1>' + self.currentLocation().name() + '</h1>' + self.currentLocation().getContent(function(l) {
-            // This is a call back function passed to Location.getContent()
-            // When Location has finished getting info from external API it will call this function
-            // check if infoWindow is still open for the location calling this call back function
-            if (self.currentLocation() == l) {
-                infoWindow.setContent('<h1>' + self.currentLocation().name() + '</h1>' + l.content());
-            }
-        }));
-        infoWindow.open(map, self.currentLocation().marker);
-
-        // center map on current marker
-        map.panTo(self.currentLocation().marker.position);
-    };
-
     self.currentLocation = ko.observableArray([this.locationsList()[0]]);
     self.selectLocation = function(clickedLocation) {
         self.currentLocation(clickedLocation);
@@ -94,7 +60,6 @@ var ViewModel = function() {
             populateInfoWindow(clickedLocation.marker, infoWindow);
         }
     };
-
     //Observable for Menu | Navigation Bar Toggle Button
     self.visibleMenu = ko.observable(false),
         //Showing/Hiding the menu
