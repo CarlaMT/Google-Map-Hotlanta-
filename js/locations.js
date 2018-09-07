@@ -1,3 +1,7 @@
+//************************* */
+// Locations & Variables
+//************************** */
+
 var map;
 var infoWindow;
 var locations = [{
