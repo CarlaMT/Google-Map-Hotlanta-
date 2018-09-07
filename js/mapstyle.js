@@ -1,6 +1,6 @@
-// *************************** /
-// Google Maps Style 
-// ************************** */
+// * ******************* * /
+//   Google Maps Style 
+// * ******************** */
 
 var map;
 var markers = [];
@@ -72,9 +72,9 @@ function initMap() {
         ]
     }];
 
-    // *************************** /
-    // Google Maps API - Markers & InfoWindows
-    // ************************** */
+    // ****************** //
+    // Google Maps API 
+    // *******************//
 
     // Constructor creates a new map - only center and zoom are required.
     map = new google.maps.Map(document.getElementById('map'), {
