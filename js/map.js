@@ -29,16 +29,16 @@ var locations = [{
             lng: -84.373619
         }
     }, {
-        title: 'Hilton Atlanta - Nikolais Roof',
+        title: 'High Museum of Art',
         location: {
-            lat: 33.761586,
-            lng: -84.383585
+            lat: 33.790063,
+            lng: -84.385552
         }
     }, {
-        title: 'Babettes Cafe',
+        title: 'Phillips Arena',
         location: {
-            lat: 33.761586,
-            lng: -84.352239
+            lat: 33.757289,
+            lng: -84.396324
         }
     },
     {
@@ -46,6 +46,13 @@ var locations = [{
         location: {
             lat: 33.759425,
             lng: -84.391975
+        }
+    },
+    {
+        title: 'Zoo Atlanta',
+        location: {
+            lat: 33.734098,
+            lng: -84.372268
         }
     },
     {
@@ -60,6 +67,13 @@ var locations = [{
         location: {
             lat: 33.772585,
             lng: -84.38560
+        }
+    },
+    {
+        title: 'Bodies The Exhibition',
+        location: {
+            lat: 33.792671,
+            lng: -84.394647
         }
     },
     {
@@ -226,7 +240,6 @@ function populateInfoWindow(marker, infowindow) {
             infowindow.marker = null;
         });
 
-
         //* ***************** * ********
         //  InfoWindows and Markers
         //* ***************** * ********
@@ -290,9 +303,9 @@ function populateInfoWindow(marker, infowindow) {
     //  Error Handling
     //* ***************** *
 }
-var googleError = function googleError() {
+
+function googleError() {
     alert(
         'Google Maps did not load. Please refresh the page and try again!'
     );
-    vm.mapError(true);
 };
