@@ -10,8 +10,6 @@ var ViewModel = function() {
     locations.forEach(function(location) {
         me.locationsList.push(new Location(location));
     });
-    //Will show when Google Maps will be unavailable
-    me.mapError = ko.observable(true);
 
     me.filter = ko.observable('');
     me.filteredLocations = ko.computed(function() {
